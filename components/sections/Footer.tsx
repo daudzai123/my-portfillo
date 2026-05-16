@@ -14,6 +14,18 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+// Define types
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};
+
 export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(footerRef, { once: true });
@@ -24,7 +36,7 @@ export default function Footer() {
 
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = [
+  const footerLinks: FooterColumn[] = [
     {
       title: "Navigation",
       links: [
