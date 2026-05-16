@@ -17,8 +17,10 @@ import {
   Package,
 } from "lucide-react";
 
+// Add 'subtitle' to the Project interface
 interface Project {
   title: string;
+  subtitle: string;  // Added this line
   description: string;
   tech: string[];
   link?: string;
@@ -43,23 +45,23 @@ export default function Projects() {
 
   const projects: Project[] = [
     {
-      title: "Innovation Management System",
-      subtitle: "Afghanistan Innovation Hub",
+      title: "BANDAAR",
+      subtitle: "Social Media Network",
       description:
-        "Developed for ministry of communications and IT, this system fosters innovation by providing a platform for idea submission, evaluation, and collaboration among innovators, investors, and government entities.",
-      tech: ["Next.js", "Spring Boot", "NextUI", "TailwindCSS"],
-      link: "https://ictinnovation.gov.af",
+        "Developed a social media platform enabling users to connect, share content, and communicate in real time through a clean and intuitive interface.",
+      tech: ["Next.js", "Laravel", "NextUI", "TailwindCSS"],
+      link: "https://bandaar.com",
       type: "live",
       icon: Users,
       gradient: "from-blue-500 via-cyan-500 to-teal-500",
       accent: "blue",
     },
     {
-      title: "CMS for Government Services",
+      title: "Centralized Integration HUB",
       subtitle: "Government Service Platform",
       description:
-        "Built a custom CMS to manage and publish content for a government services platform, enabling efficient updates and improved user experience for citizens accessing public services online.",
-      tech: ["Strapi", "Next.js", "NextUI", "TailwindCSS"],
+        "Built a centralized platform for integrating multiple services and streamlining data flow across government entities to improve communication and efficiency.",
+      tech: ["ASP.NET Core", "Next.js", "NextUI", "TailwindCSS"],
       type: "local",
       icon: Layers,
       gradient: "from-purple-500 via-violet-500 to-indigo-500",
@@ -116,6 +118,17 @@ export default function Projects() {
       gradient: "from-sky-500 via-blue-500 to-indigo-500",
       accent: "sky",
     },
+    {
+      title: "Innovation Management System",
+      subtitle: "Afghanistan Innovation Hub",
+      description:
+        "Developed for ministry of communications and IT, this system fosters innovation by connecting ideas, resources, and stakeholders in a collaborative digital environment.",
+      tech: ["Next.js", "Spring Boot", "NextUI", "TailwindCSS"],
+      type: "local",
+      icon: Code2,
+      gradient: "from-teal-500 via-emerald-500 to-green-500",
+      accent: "teal",
+    },
   ];
 
   return (
@@ -126,12 +139,11 @@ export default function Projects() {
     >
       {/* Background Elements */}
       <motion.div style={{ y }} className="absolute inset-0">
-        {/* Gradient Orbs */}
         <div
           className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full opacity-15"
           style={{
             background:
-              "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(147,51,234,0.2) 30%, transparent 70%)",
+              "radial-gradient(circle, rgba(20,184,166,0.3) 0%, rgba(16,185,129,0.2) 30%, transparent 70%)",
             filter: "blur(100px)",
           }}
         />
@@ -139,7 +151,7 @@ export default function Projects() {
           className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full opacity-10"
           style={{
             background:
-              "radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(168,85,247,0.2) 40%, transparent 70%)",
+              "radial-gradient(circle, rgba(6,182,212,0.2) 0%, rgba(20,184,166,0.2) 40%, transparent 70%)",
             filter: "blur(80px)",
           }}
         />
@@ -168,21 +180,19 @@ export default function Projects() {
       >
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-24">
-          {/* Section Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center justify-center gap-4 mb-6"
           >
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-500" />
-            <span className="text-sm tracking-[0.3em] uppercase text-blue-400 font-medium">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-teal-500" />
+            <span className="text-sm tracking-[0.3em] uppercase text-teal-400 font-medium">
               Portfolio
             </span>
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-emerald-500" />
           </motion.div>
 
-          {/* Main Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -193,12 +203,11 @@ export default function Projects() {
               Featured
             </span>
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               Projects
             </span>
           </motion.h2>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -279,7 +288,7 @@ export default function Projects() {
 
                   {/* Title & Subtitle */}
                   <div className="mb-3">
-                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+                    <h3 className="text-xl lg:text-2xl font-bold text-white mb-1">
                       {project.title}
                     </h3>
                     <p className="text-sm text-gray-400 font-medium">
@@ -288,7 +297,7 @@ export default function Projects() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-grow group-hover:text-gray-400 transition-colors duration-300">
+                  <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">
                     {project.description}
                   </p>
 
@@ -315,7 +324,7 @@ export default function Projects() {
                             : { opacity: 0, y: 10 }
                         }
                         transition={{ duration: 0.3 }}
-                        className="mt-4 flex items-center gap-2 text-blue-400"
+                        className="mt-4 flex items-center gap-2 text-teal-400"
                       >
                         <span className="text-xs font-medium">
                           View Live Project
@@ -339,22 +348,22 @@ export default function Projects() {
         >
           <div className="inline-flex items-center gap-6 glass-effect rounded-full px-8 py-4">
             <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-blue-400" />
+              <Globe className="w-4 h-4 text-teal-400" />
               <span className="text-sm text-gray-400">
                 <span className="text-white font-semibold">2</span> Live Projects
               </span>
             </div>
             <div className="w-px h-4 bg-white/10" />
             <div className="flex items-center gap-2">
-              <Server className="w-4 h-4 text-purple-400" />
+              <Server className="w-4 h-4 text-emerald-400" />
               <span className="text-sm text-gray-400">
-                <span className="text-white font-semibold">4</span> Enterprise
+                <span className="text-white font-semibold">5</span> Enterprise
                 Solutions
               </span>
             </div>
             <div className="w-px h-4 bg-white/10" />
             <div className="flex items-center gap-2">
-              <Code2 className="w-4 h-4 text-emerald-400" />
+              <Code2 className="w-4 h-4 text-cyan-400" />
               <span className="text-sm text-gray-400">
                 <span className="text-white font-semibold">10+</span>{" "}
                 Technologies
