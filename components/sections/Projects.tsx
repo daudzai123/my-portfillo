@@ -27,7 +27,6 @@ export default function Projects() {
       tech: ["Next.js", "Spring Boot", "TailwindCSS"],
       type: "local",
       link: "https://ictinnovation.gov.af",
-      type: "live",
     },
     {
       title: "IQ Leading Center",

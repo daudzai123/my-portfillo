@@ -3,7 +3,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Heart, ArrowUp, MapPin } from "lucide-react";
+import { ArrowUp, MapPin } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, EmailIcon } from "@/components/ui/SocialIcons";
 import Link from "next/link";
 
