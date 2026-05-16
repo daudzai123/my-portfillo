@@ -1,12 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { 
-  Inter, 
-  Playfair_Display, 
-  JetBrains_Mono 
-} from "next/font/google";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/ui/Navigation";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,34 +25,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Idrees Daudzai | UI/UX Designer & Application Developer",
-  description: "Crafting enjoyable experiences for your business. Premium UI/UX Design and Application Development.",
-  keywords: ["UI/UX Designer", "Application Developer", "Idrees Daudzai", "Portfolio", "Web Design", "App Development"],
-  authors: [{ name: "Idrees Daudzai" }],
-  openGraph: {
-    title: "Idrees Daudzai | UI/UX Designer & Developer",
-    description: "Crafting enjoyable experiences for your business",
-    type: "website",
-    siteName: "Idrees Daudzai Portfolio",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: "Idrees Daudzai | UI/UX Designer & Developer",
+  description: "Crafting enjoyable experiences for your business",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} antialiased`}
-      >
-        <Navigation />
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} antialiased`}>
+        <ThemeProvider>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
